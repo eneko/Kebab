@@ -27,7 +27,7 @@ public struct TrainCaseConverter: MultiWordIdentifierConverter {
         }
     }
 
-    func convert(plainText: String) -> String {
+    public func convert(plainText: String) -> String {
         return plainText
             .replacingCharacters(in: CharacterSet.alphanumerics.inverted, with: Self.separator)
             .split(separator: Character(Self.separator), maxSplits: Int.max, omittingEmptySubsequences: true)

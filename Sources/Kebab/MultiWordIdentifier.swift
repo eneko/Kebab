@@ -9,6 +9,7 @@ import Foundation
 
 public enum MultiWordIdentifier {
     /// Indicates the text is plain, and can contain spaces and any other symbols.
+    /// When used as output, input is returned as is.
     case plainText
 
     /// `flatcase` format, all lowercase without separators. This format is non-reversible.
@@ -41,8 +42,8 @@ public enum MultiWordIdentifier {
     /// `Train-Case` format, words are capitalized, separated by a hyphen.
     case trainCase
 
-    /// `UPPER-TRAIN-CASE` format, words are uppercased, separated by a hyphen.
-    case upperTrainCase
+    /// `COBOL-CASE` format, words are uppercased, separated by a hyphen.
+    case cobolCase
 
     /// `doner|case` format, words are lowercased, separated by a pipe.
     case donerCase
@@ -84,9 +85,24 @@ extension MultiWordIdentifier {
     /// `Http-Header-Case`, equivalent to `Train-Case`
     public static let httpHeaderCase = Self.trainCase
 
-    /// `COBOL-CASE`, equivalent to `UPPER-TRAIN-CASE`
-    public static let cobolCase = Self.upperTrainCase
+    /// `SCREAMING-KEBAB-CASE`, equivalent to `COBOL-CASE`
+    public static let screamingKebabCase = Self.cobolCase
 
-    /// `SCREAMING-KEBAB-CASE`, equivalent to `UPPER-TRAIN-CASE`
-    public static let screamingKebabCase = Self.upperTrainCase
+    /// `SCREAMING-TRAIN-CASE`, equivalent to `COBOL-CASE`
+    public static let screamingTrainCase = Self.cobolCase
+}
+
+extension MultiWordIdentifier {
+    var wordTransform: (Substring) -> String {
+        switch self {
+        case .plainText:
+            return String.init
+        case .flatcase, .snake_case, .kebabCase, .donerCase:
+            return { $0.lowercased() }
+        case .UPPERFLATCASE, .MACRO_CASE, .cobolCase:
+            return { $0.uppercased() }
+        case .camelCase, .PascalCase, .camel_Snake_Case, .Pascal_Snake_Case, .trainCase:
+            return { $0.capitalized }
+        }
+    }
 }

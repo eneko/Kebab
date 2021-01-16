@@ -39,4 +39,8 @@ extension String {
         let scalars = unicodeScalars.map { characterSet.contains($0) ? replacement : $0 }
         return String(UnicodeScalarView(scalars))
     }
+
+    func lowercasingFirst() -> String {
+        return prefix(1).lowercased() + dropFirst()
+    }
 }

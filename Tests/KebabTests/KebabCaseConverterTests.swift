@@ -15,7 +15,7 @@ final class KebabCaseConverterTests: XCTestCase {
     func testConversionFromPlainText() {
         let input = "Hello, this is a test for plain-text. Let's see what happens."
         let output = "hello-this-is-a-test-for-plain-text-let-s-see-what-happens"
-        XCTAssertEqual(converter.convert(text: input, from: .plainText), output)
+        XCTAssertEqual(converter.convert(plainText: input), output)
     }
 
     func testConversionFromFlatCase() {
@@ -89,11 +89,11 @@ final class KebabCaseConverterTests: XCTestCase {
         XCTAssertEqual(converter.convert(text: input, from: .httpHeaderCase), output)
     }
 
-    func testConversionFromUpperTrainCase() {
-        let input = "THIS-IS-UPPER-TRAIN-CASE"
-        let output = "this-is-upper-train-case"
-        XCTAssertEqual(converter.convert(text: input, from: .upperTrainCase), output)
+    func testConversionFromCobolCase() {
+        let input = "THIS-IS-COBOL-CASE"
+        let output = "this-is-cobol-case"
         XCTAssertEqual(converter.convert(text: input, from: .cobolCase), output)
+        XCTAssertEqual(converter.convert(text: input, from: .screamingTrainCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .screamingKebabCase), output)
     }
 
