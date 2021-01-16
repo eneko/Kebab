@@ -1,6 +1,6 @@
 # Kebab 🍢
 
-A library to convert text from different cases and formats.
+A library to convert text between different cases and formats.
 
 ## Supported multiple-word identifier formats
 
@@ -17,12 +17,12 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_(programming)#E
 | two_Words  | camel_Snake_Case                                |
 | Two_Words  | Pascal_Snake_Case                               |
 | two-words  | kebab-case, dash-case, lisp-case                |
-| two\|words  | doner\|case                                      |
+| two\|words | doner\|case                                     |
 | TWO-WORDS  | TRAIN-CASE, COBOL-CASE, SCREAMING-KEBAB-CASE    |
 | Two-Words  | Train-Case, HTTP-Header-Case                    |
 
 
-## Destructive String Conversions
+### Destructive String Conversions
 
 Swift has a `LosslessStringConvertible` protocol, intended to be used for types that
 can be represented as a string, without losing any information. This is, we can
@@ -31,12 +31,12 @@ like the original.
 
 When converting text cases, we must be aware some of these conversions
 cannot be done without losing information. Once words are merged and lowercased or
-uppercased, there is no way to separate them without a dictionary.
+uppercased, there is no way to separate them without using a dictionary.
 
 Thus, the following conversions are destructive:
 
-- Any case to `flat case`
-- Any case to `upper flat case`
+- Any case to `flatcase`
+- Any case to `UPPERFLATCASE`
 
 
 ## Contact

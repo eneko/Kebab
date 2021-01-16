@@ -68,23 +68,23 @@ extension MultiWordIdentifier {
 
     /// `SCREAMING_SNAKE_CASE`, equivalent to `MACRO_CASE`
     public static let SCREAMING_SNAKE_CASE = Self.MACRO_CASE
+
     /// `CONSTANT_CASE`, equivalent to `MACRO_CASE`
-
     public static let CONSTANT_CASE = Self.MACRO_CASE
+
     /// `spine-case`, equivalent to `kebab-case`
-
     public static let spineCase = Self.kebabCase
+
     /// `dash-case`, equivalent to `kebab-case`
-
     public static let dashCase = Self.kebabCase
+
     /// `lisp-case`, equivalent to `kebab-case`
-
     public static let lispCase = Self.kebabCase
+
     /// `Http-Header-Case`, equivalent to `Train-Case`
-
     public static let httpHeaderCase = Self.trainCase
-    /// `COBOL-CASE`, equivalent to `UPPER-TRAIN-CASE`
 
+    /// `COBOL-CASE`, equivalent to `UPPER-TRAIN-CASE`
     public static let cobolCase = Self.upperTrainCase
 
     /// `SCREAMING-KEBAB-CASE`, equivalent to `UPPER-TRAIN-CASE`
