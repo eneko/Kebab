@@ -1,3 +1,8 @@
+![Unit Test](https://github.com/eneko/Kebab/workflows/Unit%20Test/badge.svg?branch=main)
+![Swift 5.0](https://img.shields.io/badge/Swift_Version-5.0-orange.svg?style=flat&logo=Swift)
+![Linux Compatible](https://img.shields.io/badge/Linux-compatible-blue.svg?style=flat&logo=Linux)
+[![Twitter @eneko](https://img.shields.io/badge/Twitter-@eneko-blue.svg?style=flat&logo=Twitter)](https://twitter.com/eneko)
+
 # -ke-bab-> 🍢
 
 A library to convert text between different cases and formats.
