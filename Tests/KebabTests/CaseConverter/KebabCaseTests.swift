@@ -13,25 +13,25 @@ final class KebabCaseTests: XCTestCase {
     let converter = CaseConverter()
 
     func testConversionFromPlainText() {
-        let input = "Hello, this is a test for plain-text. Let's see what happens."
+        let input = plainText
         let output = "hello-this-is-a-test-for-plain-text-let-s-see-what-happens"
         XCTAssertEqual(converter.convert(text: input, from: .plainText, to: .kebabCase), output)
     }
 
     func testConversionFromFlatCase() {
-        let input = "thisisflatcase"
+        let input = flatCaseText
         let output = "thisisflatcase"
         XCTAssertEqual(converter.convert(text: input, from: .flatcase, to: .kebabCase), output)
     }
 
     func testConversionFromUpperFlatCase() {
-        let input = "THISISUPPERFLATCASE"
+        let input = upperFlatCaseText
         let output = "thisisupperflatcase"
         XCTAssertEqual(converter.convert(text: input, from: .UPPERFLATCASE, to: .kebabCase), output)
     }
 
     func testConversionFromCamelCase() {
-        let input = "thisIsCamelCase"
+        let input = camelCaseText
         let output = "this-is-camel-case"
         XCTAssertEqual(converter.convert(text: input, from: .camelCase, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .lowerCamelCase, to: .kebabCase), output)
@@ -39,7 +39,7 @@ final class KebabCaseTests: XCTestCase {
     }
 
     func testConversionFromPascalCase() {
-        let input = "ThisIsPascalCase"
+        let input = pascalCaseText
         let output = "this-is-pascal-case"
         XCTAssertEqual(converter.convert(text: input, from: .PascalCase, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .UpperCamelCase, to: .kebabCase), output)
@@ -47,14 +47,14 @@ final class KebabCaseTests: XCTestCase {
     }
 
     func testConversionFromSnakeCase() {
-        let input = "this_is_snake_case"
+        let input = snakeCaseText
         let output = "this-is-snake-case"
         XCTAssertEqual(converter.convert(text: input, from: .snake_case, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .pothole_case, to: .kebabCase), output)
     }
 
     func testConversionFromMacroCase() {
-        let input = "THIS_IS_MACRO_CASE"
+        let input = macroCaseText
         let output = "this-is-macro-case"
         XCTAssertEqual(converter.convert(text: input, from: .MACRO_CASE, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .SCREAMING_SNAKE_CASE, to: .kebabCase), output)
@@ -62,19 +62,19 @@ final class KebabCaseTests: XCTestCase {
     }
 
     func testConversionFromCamelSnakeCase() {
-        let input = "this_Is_Camel_Snake_Case"
+        let input = camelSnakeCaseText
         let output = "this-is-camel-snake-case"
         XCTAssertEqual(converter.convert(text: input, from: .camel_Snake_Case, to: .kebabCase), output)
     }
 
     func testConversionFromPascalSnakeCase() {
-        let input = "This_Is_Pascal_Snake_Case"
+        let input = pascalSnakeCaseText
         let output = "this-is-pascal-snake-case"
         XCTAssertEqual(converter.convert(text: input, from: .Pascal_Snake_Case, to: .kebabCase), output)
     }
 
     func testConversionFromKebabCase() {
-        let input = "this-is-kebab-case"
+        let input = kebabCaseText
         let output = "this-is-kebab-case"
         XCTAssertEqual(converter.convert(text: input, from: .kebabCase, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .spineCase, to: .kebabCase), output)
@@ -83,14 +83,14 @@ final class KebabCaseTests: XCTestCase {
     }
 
     func testConversionFromTrainCase() {
-        let input = "This-Is-Train-Case"
+        let input = trainCaseText
         let output = "this-is-train-case"
         XCTAssertEqual(converter.convert(text: input, from: .trainCase, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .httpHeaderCase, to: .kebabCase), output)
     }
 
     func testConversionFromCobolCase() {
-        let input = "THIS-IS-COBOL-CASE"
+        let input = cobolCaseText
         let output = "this-is-cobol-case"
         XCTAssertEqual(converter.convert(text: input, from: .cobolCase, to: .kebabCase), output)
         XCTAssertEqual(converter.convert(text: input, from: .screamingTrainCase, to: .kebabCase), output)
@@ -98,7 +98,7 @@ final class KebabCaseTests: XCTestCase {
     }
 
     func testConversionFromDonnerCase() {
-        let input = "this|is|doner|case"
+        let input = donerCaseText
         let output = "this-is-doner-case"
         XCTAssertEqual(converter.convert(text: input, from: .donerCase, to: .kebabCase), output)
     }
