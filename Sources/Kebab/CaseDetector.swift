@@ -36,28 +36,12 @@ public struct CaseDetector {
             return .plainText
         }
 
-        if let format = detectFlatVariants(text: text) {
-            return format
-        }
-
-        if let format = detectCamelPascal(text: text) {
-            return format
-        }
-
-        if let format = detectSnakeVariants(text: text) {
-            return format
-        }
-
-        if let format = detectKebabVariats(text: text) {
-            return format
-        }
-
-        if let format = detectDonerVariants(text: text) {
-            return format
-        }
-
-        // Fallback to plain-text
-        return .plainText
+        return detectFlatVariants(text: text)
+            ?? detectCamelPascal(text: text)
+            ?? detectSnakeVariants(text: text)
+            ?? detectKebabVariats(text: text)
+            ?? detectDonerVariants(text: text)
+            ?? .plainText
     }
 
     func detectFlatVariants(text: String) -> MultiWordIdentifier? {
