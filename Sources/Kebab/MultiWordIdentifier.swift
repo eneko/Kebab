@@ -92,6 +92,8 @@ extension MultiWordIdentifier {
     public static let screamingTrainCase = Self.cobolCase
 }
 
+// MARK: Output Formatting
+
 extension MultiWordIdentifier {
     var wordTransform: (Substring) -> String {
         switch self {
@@ -103,6 +105,19 @@ extension MultiWordIdentifier {
             return { $0.uppercased() }
         case .camelCase, .PascalCase, .camel_Snake_Case, .Pascal_Snake_Case, .trainCase:
             return { $0.capitalized }
+        }
+    }
+
+    var separator: String {
+        switch self {
+        case .plainText, .flatcase, .UPPERFLATCASE, .camelCase, .PascalCase:
+            return ""
+        case .snake_case, .camel_Snake_Case, .Pascal_Snake_Case, .MACRO_CASE:
+            return "_"
+        case .kebabCase, .trainCase, .cobolCase:
+            return "-"
+        case .donerCase:
+            return "|"
         }
     }
 }

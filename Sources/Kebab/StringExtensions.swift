@@ -1,22 +1,11 @@
 //
-//  MultiWordIdentifierConverter.swift
+//  StringExtensions.swift
 //  Kebab
 //
 //  Created by Eneko Alonso on 1/15/21.
 //
 
 import Foundation
-
-/// Defines a type that can convert text to a from a given format
-public protocol MultiWordIdentifierConverter {
-    /// Convert a given text from a given format.
-    /// - Parameters:
-    ///   - text: Text to be converted
-    ///   - identifier: Format the input text is in
-    func convert(text: String, from identifier: MultiWordIdentifier) -> String
-}
-
-// MARK: Internal String Extensions
 
 extension String {
     func splitByCapitals() -> [String] {

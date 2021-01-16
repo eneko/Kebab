@@ -35,7 +35,7 @@ public struct CaseConverter {
             .replacingCharacters(in: CharacterSet.alphanumerics.inverted, with: "-")
             .split(separator: "-", maxSplits: Int.max, omittingEmptySubsequences: true)
             .map(output.wordTransform)
-            .joined()
+            .joined(separator: output.separator)
 
         // Lowercase first letter if needed
         if output == .camelCase || output == .camel_Snake_Case {
