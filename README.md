@@ -17,7 +17,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_(programming)#E
 | two_Words  | camel_Snake_Case                                |
 | Two_Words  | Pascal_Snake_Case                               |
 | two-words  | kebab-case, dash-case, lisp-case                |
-| two|words  | doner|case                                      |
+| two\|words  | doner\|case                                      |
 | TWO-WORDS  | TRAIN-CASE, COBOL-CASE, SCREAMING-KEBAB-CASE    |
 | Two-Words  | Train-Case, HTTP-Header-Case                    |
 
