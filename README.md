@@ -129,7 +129,7 @@ detector.detectCase(in: "this-is-kebab-case") // .kebabCase
 detector.detectCase(in: "SOME_CONSTANT") // .MACRO_CASE
 ```
 
-This allows to use `CaseConverter` withouth having to provide the input format (with
+This allows to use `CaseConverter` without having to provide the input format (adding
 a performance penalty).
 
 ```swift
