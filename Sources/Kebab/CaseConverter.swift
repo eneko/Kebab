@@ -12,9 +12,19 @@ public struct CaseConverter {
 
     public init() {}
 
+    /// Convert a given text from a given format. Input format is automatically detected using `CaseDetector`.
+    /// - Parameters:
+    ///   - text: Text to be converted to new format
+    ///   - output: Format to convert to
+    /// - Returns: Converted text
+    public func convert(text: String, to output: MultiWordIdentifier) -> String {
+        let input = CaseDetector().detectCase(in: text)
+        return convert(text: text, from: input, to: output)
+    }
+
     /// Convert a given text from a given format.
     /// - Parameters:
-    ///   - text: Text to be converted to `camelCase`
+    ///   - text: Text to be converted to new format
     ///   - input: Format to convert from
     ///   - output: Format to convert to
     /// - Returns: Converted text
