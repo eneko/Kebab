@@ -7,7 +7,8 @@
 
 import Foundation
 
-public enum MultiWordIdentifier {
+// swiftlint:disable identifier_name
+public enum MultiWordIdentifier: CaseIterable {
     /// Indicates the text is plain, and can contain spaces and any other symbols.
     /// When used as output, input is returned as is.
     case plainText

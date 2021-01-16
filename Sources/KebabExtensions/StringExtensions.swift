@@ -22,6 +22,12 @@ extension String {
     /// - Parameter output: Format to convert to
     /// - Returns: converted string with new case format
     public func converted(from input: MultiWordIdentifier, to output: MultiWordIdentifier) -> String {
-        CaseConverter().convert(text: self, from: input, to: format)
+        CaseConverter().convert(text: self, from: input, to: output)
+    }
+
+    /// Detect case format on current string
+    /// - Returns: Detected case format
+    public func detectCase() -> MultiWordIdentifier {
+        CaseDetector().detectCase(in: self)
     }
 }

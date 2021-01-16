@@ -38,7 +38,7 @@ are supported by `Kebab`:
 
 ### Multi-word Identifier
 
-`MultiwordIdentifier` defines input and output conversion formats. 
+`MultiwordIdentifier` defines input and output conversion formats.
 Enum cases are defined mathing their case format where possible:
 
 ```swift
@@ -58,7 +58,7 @@ public enum MultiWordIdentifier {
 }
 ```
 
-### Synonyms / Aliases 
+### Synonyms / Aliases
 
 The following aliases are also defined for convenience:
 
@@ -80,17 +80,102 @@ extension MultiWordIdentifier {
 }
 ```
 
-## Case Converter
+## Usage
+
+### Case Converter
 
 `CaseConverter` is the core of this library, and allows converting between all the formats
-listed above. Note that converting to `flastcase` or `UPPERFLATCASE` formats is non-reversible.
+listed above. Note that converting to `flatcase` or `UPPERFLATCASE` formats is non-reversible.
 
-`CaseConverter` can also take plain text as input. This process will replace any 
+```swift
+import Kebab
+
+let con = CaseConverter()
+con.convert(text: "CaseConverter", from: .PascalCase, to: .flatcase) // caseconverter
+con.convert(text: "caseconverter", from: .flatcase, to: .PascalCase) // Caseconverter ⚠️
+```
+
+`CaseConverter` can also take plain text as input. This process will replace any
 non-alpanumeric characters with the proper separator (or no separator) depending on the format.
+
+```swift
+import Kebab
+
+let con = CaseConverter()
+con.convert(text: "A Title for a 100 Blog Post!", from: .plainText, to: .kebabCase)
+// a-title-for-a-100-blog-post
+```
 
 Consecutive separators are removed.
 
+```swift
+import Kebab
 
+let con = CaseConverter()
+con.convert(text: "Too much $$$ I would say!!", from: .plainText, to: .snake_case)
+// too_much_i_would_say
+```
+
+### Case Detector
+
+While indicating the input format is preferrable (more performant), `Kebab` provides
+a case detector.
+
+```swift
+import Kebab
+
+let detector = CaseDetector()
+detector.detectCase(in: "this-is-kebab-case") // .kebabCase
+detector.detectCase(in: "SOME_CONSTANT") // .MACRO_CASE
+```
+
+This allows to use `CaseConverter` withouth having to provide the input format (with
+a performance penalty).
+
+```swift
+import Kebab
+
+let con = CaseConverter()
+con.convert(text: "this-is-kebab-case", to: .camelCase) // thisIsKebabCase
+```
+
+### String Extensions
+
+For convenience, a separate module `KebabExtensions` provides extensions for `String`,
+both for conversion and case detection.
+
+```swift
+import KebabExtensions
+
+"Some-Http-Header".converted(to: .donerCase) // some|http|header
+"GoodOldPascalCase".converted(to: .SCREAMING_SNAKE_CASE) // GOOD_OLD_PASCAL_CASE
+
+"This_Is_Pascal_Snake_Case".detectCase() // .Pascal_Snake_Case
+```
+
+## Installation
+
+Add `Kebab` to your Swift package:
+
+```swift
+// swift-tools-version:5.0
+import PackageDescription
+
+let package = Package(
+  name: "YourProject",
+  dependencies: [
+    .package(url: "https://github.com/eneko/Kebab", from: "1.0.0"),
+  ]
+)
+```
+
+### Requirements
+
+Swift 5.0+
+
+## License
+
+MIT
 
 ## Contact
 
