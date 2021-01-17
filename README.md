@@ -153,6 +153,38 @@ import KebabExtensions
 "This_Is_Pascal_Snake_Case".detectCase() // .Pascal_Snake_Case
 ```
 
+### JSON Encoding/Decoding Strategies
+
+`camelCase` (default) and `snake_case` key encoding/decoding strategies are 
+both included in `Foundation`, so this library does not provide them.
+
+This library however provides key encoding/decoding strategies for handling
+JSON payloads with keys encoded in either `PascalCase` or `kebab-case`.
+
+```swift
+struct Dto: Codable {
+    let propertyName: String
+    let anotherProperty: Int
+    // Note the lack of custom coding keys
+}
+
+let json = """
+{
+    "property-name": "Property Value",
+    "another-property": 42
+}
+"""
+
+let decoder = JSONDecoder()
+decoder.keyDecodingStrategy = .convertFromKebabCase  // decode `kebab-case` keys
+let dto = try decoder.decode(Dto.self, from: Data(json.utf8))
+
+let encoder = JSONEncoder()
+encoder.keyEncodingStrategy = .convertToPascalCase  // encode `PascalCase` keys
+let data = try encoder.encode(dto)
+// { "PropertyName": "Property Value", "AnotherProperty": 42 }
+```
+
 ## Installation
 
 Add `Kebab` to your Swift package:
