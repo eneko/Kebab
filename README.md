@@ -159,9 +159,12 @@ import KebabExtensions
 both included in `Foundation`, so this library does not provide them.
 
 This library however provides key encoding/decoding strategies for handling
-JSON payloads with keys encoded in either `PascalCase` or `kebab-case`.
+JSON payloads with keys encoded in either `PascalCase` or `kebab-case`. These 
+are included in the module `KebabJSON`.
 
 ```swift
+import KebabJSON
+
 struct Dto: Codable {
     let propertyName: String
     let anotherProperty: Int
